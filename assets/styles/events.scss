@@ -390,3 +390,32 @@
 }
 
 
+@media (max-width: 767px) {
+    .tabs--desktop {
+      display: none;
+    }
+
+    .tabs__text-content {
+      display: block;
+    }
+
+    .tabs__item {
+        span{
+          color: $color-orange !important;
+        }
+      border: none;
+        &:hover {
+          border-bottom: none;
+          cursor: default;
+        }
+    }
+
+}
+
+@media (min-width: 767px) {
+    .tabs--phone {
+      display: none;
+    }
+
+}
+
