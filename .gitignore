@@ -11,10 +11,10 @@ node_modules/
 *.log.*
 
 # for master
-assets/**/*.css
-/dist
-index.html
+# assets/**/*.css
+# /dist
+# index.html
 
 # for gh-pages
-# assets
-# package-lock.json
+assets
+package-lock.json
