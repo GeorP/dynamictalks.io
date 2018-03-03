@@ -71,9 +71,9 @@ export default class Speaker extends Component {
             key={socialNetworks[0].name}
             target="_blank"
           >
-            <img
-              alt={socialNetworks.name}
-              src={facebook}
+            <i
+              aria-hidden="true"
+              className="fa fa-facebook-square icon"
             />
           </Anchor>
 

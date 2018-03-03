@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import {Heading} from '../Heading';
+import { Heading } from '../Heading';
 import './Partners.scss';
 import gd from 'src/images/gd-logo.png';
 
-import twitter from 'src/images/twitter.svg';
-import facebook from 'src/images/facebook.svg';
-import linkedin from 'src/images/linkedin-1.svg';
+// import twitter from 'src/images/twitter.svg';
+// import facebook from 'src/images/facebook.svg';
+// import linkedin from 'src/images/linkedin-1.svg';
 
 const CN = 'partners';
 
 export default class Partners extends Component {
-
+  
   static propTypes = {
-
+    
     /**
      * className - classes which can be passed from parent
      */
@@ -24,11 +24,11 @@ export default class Partners extends Component {
      */
     config: PropTypes.object.isRequired
   };
-
+  
   constructor(props) {
     super(props);
   }
-
+  
   render() {
     const {config, id} = this.props;
     return (
@@ -55,21 +55,21 @@ export default class Partners extends Component {
               </p>
               <div className={cx(`${CN}_general_content_desc_icons`)}>
                 <a href={config.socialNetworks[4].link}>
-                  <img
-                    alt="linkedin"
-                    src={linkedin}
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-linkedin-square icon"
                   />
                 </a>
                 <a href={config.socialNetworks[2].link}>
-                  <img
-                    alt="twitter"
-                    src={twitter}
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-twitter-square icon"
                   />
                 </a>
                 <a href={config.socialNetworks[0].link}>
-                  <img
-                    alt="facebook"
-                    src={facebook}
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-facebook-square icon"
                   />
                 </a>
               </div>

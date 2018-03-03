@@ -6,7 +6,7 @@ import cx from 'classnames';
 import verticalLine from 'src/images/decor/vertical-line.svg';
 import horizontalLine from 'src/images/decor/horizontal-small-line.svg';
 import {Heading} from 'src/components/Heading';
-import facebook from 'src/images/facebook.svg';
+// import facebook from 'src/images/facebook.svg';
 
 export const CN = 'about';
 import meetUp from 'src/images/header/bg-foto-meetup_small.jpg';
@@ -87,9 +87,9 @@ export default class AboutUsSection extends Component {
               className="socialLinks_list_icon"
               href={config.externalEndpoints.facebook}
             >
-              <img
-                alt="icon"
-                src={facebook}
+              <i
+                aria-hidden="true"
+                className="fa fa-facebook-square icon"
               />
             </a>
           </div>

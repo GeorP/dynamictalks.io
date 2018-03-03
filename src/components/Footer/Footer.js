@@ -4,7 +4,7 @@ import autoBind from 'react-autobind';
 import cx from 'classnames';
 import './Footer.scss';
 import logo from 'src/images/dt-logo.svg';
-import facebook from 'src/images/facebook.svg';
+// import facebook from 'src/images/facebook.svg';
 
 export const CN = 'footer';
 
@@ -53,9 +53,9 @@ export default class Footer extends Component {
             <p>Ми в соцмережах</p>
             <div className="info_socials__networks">
               <a href={config.socialNetworks[0].link}>
-                <img
-                  alt="facebook"
-                  src={facebook}
+                <i
+                  aria-hidden="true"
+                  className="fa fa-facebook-square icon"
                 />
               </a>
             </div>
