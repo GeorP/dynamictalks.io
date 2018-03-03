@@ -228,9 +228,13 @@
       width: 300px;
       padding: 25px;
 
-      @include respond-to($phone) {
-        width: 220px;
+      @include respond-to($tablet-portrait) {
+        width: 250px;
       }
+      @include respond-to($phone) {
+        width: 190px;
+      }
+
     }
 
   }
