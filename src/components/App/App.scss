@@ -35,7 +35,7 @@ body, html {
 
 .icon {
   padding: 8px;
-  font-size: $font-size-large;
+  font-size: 30px;
   color: $color-gray;
 
   &:hover {
@@ -43,6 +43,6 @@ body, html {
   }
 
   @include respond-to($tablet-portrait) {
-    font-size: $font-size-x-large;
+    font-size: 30px;
   }
 }
