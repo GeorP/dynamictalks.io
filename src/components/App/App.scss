@@ -18,6 +18,10 @@ body, html {
   font-family: $font-family-opensans-regular;
 }
 
+.root--container{
+    overflow: hidden;
+  }
+
 .container {
   width: $container-width;
   margin: 0 auto;

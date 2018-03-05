@@ -185,24 +185,43 @@
 
   // ___________ DROP-DOWN-MENU ______________ //
   .collapse-menu {
+    //box-sizing: border-box;
+    //position: fixed;
+    //left: 0;
+    //right: 0;
+    //height: 0;
+    //background: #0cf881;
+    //z-index: 100;
+    //display: flex;
+    //opacity: 0;
+    //flex-direction: column;
+    //padding: 0;
+    //overflow: hidden;
+
     box-sizing: border-box;
     position: fixed;
     left: 0;
+    top: 0;
     right: 0;
-    height: 0;
+    bottom: 0;
     background: #0cf881;
     z-index: 100;
     display: flex;
     opacity: 0;
     flex-direction: column;
-    padding: 0;
     overflow: hidden;
 
     &--visible {
+      //opacity: 1;
+      //height: calc(100% - #{$navigation-bar-height});
+      //padding: 40px;
+      //transition: opacity .5s;
       opacity: 1;
-      height: calc(100% - #{$navigation-bar-height});
-      padding: 40px;
       transition: opacity .5s;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      justify-content: center;
     }
 
     & > div {

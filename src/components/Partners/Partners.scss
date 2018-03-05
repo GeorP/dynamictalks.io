@@ -81,6 +81,24 @@
             width: 24px;
             height: 24px;
           }
+          @include respond-to($phone) {
+            display: flex;
+            justify-content: space-around;
+
+            a {
+              margin: 0;
+            }
+
+          }
+          @include respond-to($tablet-portrait) {
+            display: flex;
+            justify-content: space-around;
+
+            a {
+              margin: 0;
+            }
+
+          }
         }
 
         &_btn {
