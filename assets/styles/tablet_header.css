@@ -1,0 +1,42 @@
+.container_tablet .tablet_content .logo {
+  text-align: center;
+  padding: 50px 0 13px; }
+  .container_tablet .tablet_content .logo img {
+    width: 172px;
+    height: 32px; }
+
+.container_tablet .tablet_content .rhino_img {
+  position: relative;
+  z-index: 2;
+  text-align: center; }
+  .container_tablet .tablet_content .rhino_img img {
+    width: 80%; }
+
+.container_tablet .tablet_content .intro_text {
+  text-align: center;
+  margin-top: -100px; }
+  .container_tablet .tablet_content .intro_text img {
+    width: 80%; }
+
+.container_tablet .tablet_content .sub_intro_text {
+  text-align: center; }
+  .container_tablet .tablet_content .sub_intro_text p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: .5rem;
+    padding: 12px 0 30px; }
+
+.container_tablet .tablet_content .register_btn {
+  text-align: center;
+  padding-bottom: 35px;
+  z-index: 200; }
+
+.container_tablet .tablet_content .path_line img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 29%;
+  pointer-events: none; }

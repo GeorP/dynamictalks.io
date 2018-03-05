@@ -1,0 +1,333 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.header {
+  width: 100%;
+  height: calc(100vh - #{$navigation-bar-height});
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: url("../../images/header/header.jpg") center center no-repeat;
+  background-size: cover;
+  padding-top: $navigation-bar-height;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    // margin: $navigation-bar-height 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(175deg, rgba(0, 248, 123, 0.8), $color-primary-green);
+
+  }
+
+  .container {
+    padding: 0 115px;
+    @include respond-to("(max-width:950px)") {
+      padding: 0 15px;
+    }
+  }
+
+  // ___________ NAVIGATION-BAR______________ //
+  .navbar__wrapper {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    min-height: $navigation-bar-height;
+    background: transparent;
+    transition: background .5s;
+    // background-image: linear-gradient(175deg, rgba(0, 248, 123, 0.8), rgba(0, 248, 123, 0.8));
+
+    &--not-top,
+    &--menu-opened {
+      background: $color-white;
+    }
+
+    &--not-top {
+      box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    &--menu-opened {
+      box-shadow: none !important;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      &__link {
+        margin: 0 15px;
+        cursor: pointer;
+        @include font-family-gothamPro-medium();
+
+      }
+
+      &__burger-icon {
+        display: none;
+      }
+
+      @include respond-to($tablet-portrait) {
+        &__menu, &__btn {
+          display: none;
+        }
+
+        &__burger-icon {
+          display: block;
+        }
+
+      }
+
+    }
+
+    @include respond-to($tablet-portrait) {
+      justify-content: space-around;
+    }
+
+  }
+
+  // ___________ MAIN-INFORMATION-BLOCK______________ //
+  &__event-info {
+    width: 70%;
+    z-index: 100;
+    margin-bottom: $navigation-bar-height;
+
+    .event-info {
+      align-items: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 85px;
+
+      &__top {
+        width: 600px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-bottom: 20px;
+
+        @media screen and (min-width: 320px) and (max-width:400px) {
+          width:100% !important;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          @include font-family-gothamPro-medium();
+
+          img {
+            margin: 10px;
+          }
+
+          @include respond-to($phone) {
+            font-size: 12px;
+          }
+
+        }
+
+
+      }
+
+      h1 {
+        @include fluid-type(320px, 767px, $font-size-x-large, $font-size-xx-large);
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        @include font-family-gothamPro-bold();
+
+        @include respond-to($phone) {
+          font-size: $font-size-x-large;
+        }
+      }
+
+      h2 {
+        font-size: $font-size-large;
+        font-weight: 500;
+        text-align: center;
+        @include font-family-gothamPro-medium();
+
+        @include respond-to($phone) {
+          font-size: $font-size-medium;
+        }
+
+      }
+
+      @include respond-to($tablet-portrait) {
+        align-items: flex-start;
+        margin-bottom: 30px;
+
+        &__top {
+          width: 390px;
+          justify-content: flex-start;
+        }
+
+      }
+
+    }
+
+    @include respond-to($phone) {
+      width: 90%;
+    }
+    @include respond-to($tablet-portrait) {
+      width: 90%;
+    }
+
+  }
+
+  // ___________ DROP-DOWN-MENU ______________ //
+  .collapse-menu {
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: #0cf881;
+    z-index: 100;
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+
+    &--visible {
+      opacity: 1;
+      height: calc(100% - #{$navigation-bar-height});
+      padding: 40px;
+      transition: opacity .5s;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      nav {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 45px;
+
+        .navbar__link {
+          margin-bottom: 30px;
+          font-size: $font-size-large;
+          cursor: pointer;
+          @include font-family-gothamPro-medium();
+        }
+      }
+    }
+
+    &__rbtn {
+      align-self: center;
+      text-align: center;
+      width: 300px;
+      padding: 25px;
+
+      @include respond-to($tablet-portrait) {
+        width: 250px;
+      }
+      @include respond-to($phone) {
+        width: 190px;
+      }
+
+    }
+
+  }
+
+  // ___________ DECORATION______________ //
+  .snake {
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include respond-to($tablet-portrait) {
+      right: -300px;
+    }
+    @include respond-to($phone) {
+      right: -490px;
+      img {
+        width: 65%;
+      }
+    }
+  }
+
+  .play-btn {
+    display: flex;
+    justify-content: center;
+
+    & > a {
+      display: flex;
+      align-items: center;
+      align-self: center;
+      padding: 20px 22px;
+      border: 2px solid $color-black;
+      cursor: pointer;
+      text-transform: uppercase;
+      @include font-family-gothamPro-bold();
+
+      & > img {
+        margin-right: 15px;
+      }
+
+      &:hover {
+        color: $color-primary-green;
+        background: $color-black;
+      }
+
+      &:active {
+        color: $color-hover-green;
+      }
+
+      @include respond-to($tablet-portrait) {
+        padding: 10px 15px;
+        width: 200px;
+        font-size: 12px;
+
+      }
+
+    }
+  }
+
+  .partner {
+    width: 100%;
+    position: absolute;
+    bottom: 45px;
+
+    a {
+      text-decoration: none;
+    }
+
+    &__wrap {
+      max-width: 1140px;
+      padding: 0 115px;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.71;
+      @include font-family-gothamPro-medium();
+    }
+
+    img {
+      margin-left: -10px;
+      width: 165px;
+    }
+
+    @include respond-to($tablet-portrait) {
+      bottom: 25px;
+      text-align: center;
+      &__wrap {
+        padding: 0 15px;
+      }
+    }
+  }
+
+}
+

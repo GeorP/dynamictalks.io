@@ -1,0 +1,119 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.partners {
+  padding-top: 50px;
+  max-width: 1140px;
+  margin: 0 auto;
+
+  &_header {
+    padding-left: 97px;
+
+    @include respond-to($tablet-portrait) {
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  &_general {
+    background-color: $color-primary-green;
+    padding: 55px 97px 80px;
+    margin-top: 36px;
+
+    @include respond-to($tablet-portrait) {
+      padding: 55px 15px 80px;
+    }
+
+    &_title {
+      @include font-family-gothamPro-bold();
+      padding-bottom: 25px;
+      font-size: 18px;
+    }
+
+    &_content {
+      background-color: $color-white;
+      display: flex;
+      padding: 30px 45px;
+      box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.08);
+
+      @include respond-to($tablet-portrait) {
+        flex-direction: column;
+      }
+
+      &_logo {
+        padding-right: 60px;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+
+        @include respond-to($tablet-portrait) {
+          padding-right: 0;
+        }
+
+        img {
+          width: 150px;
+        }
+      }
+
+      &_desc {
+
+        &_title {
+          font-size: 24px;
+          @include font-family-gothamPro-bold();
+          letter-spacing: 1px;
+        }
+
+        &_text {
+          font-size: 16px;
+          @include font-family-gothamPro-medium();
+          color: $color-darkgray;
+          line-height: 1.5;
+          padding: 15px 0;
+        }
+
+        &_icons {
+          a {
+            margin-right: 25px;
+          }
+          padding-bottom: 18px;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        &_btn {
+          @include respond-to($tablet-portrait) {
+            text-align: center;
+          }
+
+          &_regbtn {
+            display: inline-block;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: $color-deep-black;
+            border: 2px solid $color-deep-black;
+            padding: 15px 13px;
+            text-decoration: none;
+
+            @include respond-to($tablet-portrait) {
+              width: 80%;
+              text-align: center;
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &:focus {
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

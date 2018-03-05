@@ -1,57 +1,73 @@
 import React, { Component } from 'react';
 import { config } from 'src/config/config';
-import { Top } from '../Top';
-import { Meetup } from '../Meetup';
-import { Speakers } from '../Speakers';
-import { Organizers } from '../Organizers';
+import { SpeakersSection } from '../SpeakersSection';
+import { ContactsSection } from '../ContactsSection';
+import { SocialNetwork } from '../SocialNetwork';
+import { Header } from '../Header';
+import { Schedule } from '../Schedule';
+import { Partners } from '../Partners';
+import { PreviousSpeakers } from '../PreviousSpeakers';
 import { Footer } from '../Footer';
-import { Nav } from '../Nav';
-import { Promo } from 'src/components/Promo';
 import './App.scss';
+import {AboutUsSection} from '../AboutUsSection';
 
 export const SECTIONS = {
-  TOP: 'top',
-  MEETUP: 'meetup',
+  HEADER: 'header',
+  SCHEDULE: 'schedule',
   SPEAKERS: 'speakers',
-  ORGANIZERS: 'organizers'
+  ORGANIZERS: 'organizers',
+  CONTACTS: 'contacts',
+  SOCIALNETWORKS: 'socialnetwork',
+  PARTNERS: 'partners',
+  ABOUT:'about'
+  
 };
 
 export default class App extends Component {
-
+  
   render() {
     return (
       <div>
-        <Top
+        <Header
           config={config}
-          id={SECTIONS.TOP}
+          id={SECTIONS.HEADER}
+          items={[SECTIONS.SPEAKERS, SECTIONS.SCHEDULE, SECTIONS.CONTACTS, SECTIONS.PARTNERS,SECTIONS.ABOUT]}
         />
-
-        <Promo/>
-
-        <Meetup
-          config={config}
-          id={SECTIONS.MEETUP}
-        />
-        <Speakers
+        
+        <SpeakersSection
           config={config}
           id={SECTIONS.SPEAKERS}
         />
-        <Organizers
+        
+        <Schedule
           config={config}
-          id={SECTIONS.ORGANIZERS}
+          id={SECTIONS.SCHEDULE}
         />
-        <Footer
+        
+        <ContactsSection
           config={config}
+          id={SECTIONS.CONTACTS}
+        />
+        
+        <SocialNetwork
+          config={config}
+        />
+        
+        <AboutUsSection
+          config={config}
+          id={SECTIONS.ABOUT}
         />
 
-        <Nav
-          items={[
-            SECTIONS.TOP,
-            SECTIONS.MEETUP,
-            SECTIONS.SPEAKERS,
-            SECTIONS.ORGANIZERS
-          ]}
+        <Partners
+          config={config}
+          id={SECTIONS.PARTNERS}
         />
+        
+        <PreviousSpeakers
+          config={config}
+        />
+        
+        <Footer config={config}/>
       </div>
     );
   }

@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.register-block {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: $color-white;
+  box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.08);
+
+  &_content {
+    background: url("../../images/shape.png") no-repeat 110%;
+
+    &_bg {
+      padding: 50px 70px 40px;
+
+      &_title {
+        @include font-family-gothamPro-medium();
+        font-size: 22px;
+        padding-bottom: 25px;
+        color: $color-deep-black;
+      }
+
+      &_regbtn {
+        letter-spacing: 0.5px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: $color-white;
+        background-color: $color-deep-black;
+        padding: 19px 17px;
+        text-decoration: none;
+
+        &:hover {
+          cursor: pointer;
+          color: $color-lightgreen;
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

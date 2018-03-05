@@ -1,1 +1,1 @@
-export { default as Button, BUTTON_THEME } from './Button';
+export { default as Button } from './Button';

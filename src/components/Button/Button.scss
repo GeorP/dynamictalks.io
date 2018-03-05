@@ -1,31 +1,20 @@
-@import "~src/variables.scss";
-@import "~src/mixins.scss";
-
+@import "../../variables.scss";
+@import "../../mixins.scss";
 
 .button {
-  height: 20px;
-  padding: 8px 18px;
-  display: inline-block;
-  border-radius: 40px;
-  font-size: 14px;
-  color: $color-black;
   text-transform: uppercase;
-  line-height: 19px;
+  color: $color-white;
   text-decoration: none;
+  @include font-family-gothamPro-medium();
 
-  &:hover {
-    box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.2);
+  @include respond-to("(max-width:950px)"){
+    padding: 10px;
+    font-size: 15px;
   }
 
-  &--yellow {
-    background-color: $color-orange;
-
-    &:hover {
-      background-color: rgba(255, 221, 89, 1);
-    }
+  &__burger-icon {
+      display: none;
+      cursor: pointer;
   }
 
-  &--white {
-    background-color: $color-white;
-  }
 }

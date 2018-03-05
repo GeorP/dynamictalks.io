@@ -1,0 +1,114 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.schedule {
+  background-color: $color-deep-black;
+  position: relative;
+  background-size: 100% 100%;
+  margin-top:70px;
+
+  .register-block {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: -100px;
+
+    @include respond-to($tablet-portrait) {
+      bottom: -100px;
+    }
+
+    .register-block_content {
+      @include respond-to($tablet-portrait) {
+        padding: 25px;
+        background-size: 60% 80%;
+        background-position: 135%
+      }
+
+      &_bg {
+        @include respond-to($tablet-portrait) {
+          padding: 0;
+        }
+
+        &_regbtn {
+          @include respond-to($tablet-portrait) {
+            display: block;
+            width: 90%;
+          }
+        }
+      }
+    }
+
+    @include respond-to($tablet-portrait) {
+      width: 90%;
+    }
+  }
+
+  &_container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 74px 97px 170px;
+    color: $color-white;
+    font-size: 16px;
+    font-weight: bold;
+
+    @include respond-to($tablet-portrait) {
+      padding: 50px 20px 150px;
+    }
+
+      &_title {
+        @include font-family-gothamPro-bold();
+        font-size: 30px;
+        text-transform: uppercase;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+      }
+
+    &_program {
+      padding: 50px 0 20px;
+
+      &_event {
+        display: flex;
+        padding: 20px 0 25px;
+        border-bottom: 1px solid $schedule-underline;
+
+        @include respond-to($tablet-portrait) {
+          flex-direction: column;
+        }
+
+        &_time {
+          @include font-family-gothamPro-medium();
+          min-width: 135px;
+          font-size: 22px;
+          color: $color-light-gray;
+          font-weight: 500;
+        }
+
+        &_description {
+          @include font-family-gothamPro-medium();
+          display: flex;
+          flex-direction: column;
+          align-self: center;
+          padding-left: 70px;
+
+          &_topic {
+            color: $color-lightgreen;
+            font-size: 20px;
+            font-weight: bold;
+            padding-top: 10px;
+          }
+
+          @include respond-to($tablet-portrait) {
+            padding-left: 0;
+            padding-top: 8px;
+            align-self: flex-start;
+          }
+        }
+      }
+    }
+  }
+}
+

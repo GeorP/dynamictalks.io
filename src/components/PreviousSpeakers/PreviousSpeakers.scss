@@ -1,0 +1,101 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.previous-speakers {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 70px 15px 64px;
+
+  &_list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 65px 10px 30px;
+
+    &_speaker {
+      width: 165px;
+      margin: 5px;
+
+      @include respond-to($tablet-portrait) {
+        width: 120px;
+      }
+
+      &_img {
+        width: 160px;
+        height: auto;
+
+        @include respond-to($tablet-portrait) {
+          width: 120px;
+        }
+      }
+
+      &_name {
+        padding: 15px 0;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      &_position {
+        font-size: 14px;
+        color: $color-gray;
+      }
+    }
+  }
+
+  &_btn {
+    text-align: center;
+    padding-bottom: 60px;
+
+    &_loadmore {
+      @include font-family-gothamPro-bold();
+      background-color: transparent;
+      display: inline-block;
+      letter-spacing: 0.5px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: $color-deep-black;
+      border: 2px solid $color-deep-black;
+      padding: 15px 13px;
+      text-decoration: none;
+
+      @include respond-to($tablet-portrait) {
+        width: 80%;
+        text-align: center;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .register-block {
+    background-color: $color-lightgreen;
+
+    &_content {
+      background: url("../../images/shape-white.png") no-repeat 110%;
+      @include respond-to($tablet-portrait) {
+        padding: 25px;
+        background-size: 60% 80%;
+        background-position: 135%
+      }
+
+      &_bg {
+        @include respond-to($tablet-portrait) {
+          padding: 0;
+        }
+
+        &_regbtn {
+          @include respond-to($tablet-portrait) {
+            display: block;
+            width: 90%;
+          }
+        }
+      }
+    }
+  }
+}

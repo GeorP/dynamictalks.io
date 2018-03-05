@@ -1,0 +1,116 @@
+.container_tablet .tablet_content .logo {
+  text-align: center;
+  padding: 50px 0 13px; }
+  .container_tablet .tablet_content .logo img {
+    width: 172px;
+    height: 32px; }
+
+.container_tablet .tablet_content .rhino_img {
+  position: relative;
+  z-index: 2;
+  text-align: center; }
+  .container_tablet .tablet_content .rhino_img img {
+    width: 80%; }
+
+.container_tablet .tablet_content .intro_text {
+  text-align: center;
+  margin-top: -100px; }
+  .container_tablet .tablet_content .intro_text img {
+    width: 80%; }
+
+.container_tablet .tablet_content .sub_intro_text {
+  text-align: center; }
+  .container_tablet .tablet_content .sub_intro_text p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5rem;
+    letter-spacing: .5rem;
+    padding: 12px 0 30px; }
+
+.container_tablet .tablet_content .register_btn {
+  text-align: center;
+  padding-bottom: 35px;
+  z-index: 200; }
+
+.container_tablet .tablet_content .path_line img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 29%;
+  pointer-events: none; }
+
+.main {
+  position: relative;
+  background-color: #FFCB09;
+  overflow: hidden; }
+  .main .container_dekstop {
+    max-width: 85%;
+    margin: 0 auto; }
+  .main_content {
+    padding-top: 53px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
+    .main_content .logo img {
+      width: 197px;
+      height: 36px; }
+  .main_intro {
+    position: relative;
+    padding-top: 145px; }
+    .main_intro .intro_text img {
+      background-size: cover;
+      height: 100%;
+      width: 100%; }
+    .main_intro .sub_intro_text {
+      text-align: center;
+      padding: 75px 0 85px; }
+      .main_intro .sub_intro_text p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 3rem;
+        letter-spacing: .95rem; }
+  .main .path_line img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 52%;
+    pointer-events: none; }
+  .main .rhino img {
+    position: absolute;
+    top: 13%;
+    left: 46%;
+    height: 84%; }
+  @media (max-width: 1320px) {
+    .main .rhino img {
+      position: absolute;
+      top: 13%;
+      left: 50%;
+      height: 75%;
+      transform: translate3d(-10%, 0, 0); }
+    .main_intro {
+      padding-top: 100px;
+      top: 60%;
+      position: relative; }
+      .main_intro .sub_intro_text p {
+        font-size: 2em; } }
+
+@media (max-width: 1070px) {
+  .main .rhino img {
+    top: 18%;
+    height: 70%;
+    transform: translate3d(-15%, 0, 0); } }
+
+@media (max-width: 767px) {
+  .main .container_dekstop {
+    display: none; } }
+
+@media (min-width: 767px) {
+  .main .container_tablet {
+    display: none; } }
