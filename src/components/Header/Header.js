@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { RegistrationButton } from '../RegistrationButton';
 import { Anchor } from 'src/components/Anchor';
+import {throttle} from "src/utils/_";
 import pointerIconPath from 'src/images/header/pointer.svg';
 import calendarIconPath from 'src/images/header/calendar.svg';
 import snakeIconPath from 'src/images/header/snake.svg';
@@ -57,8 +58,8 @@ export default class Header extends Component {
   
   componentDidMount() {
     this.handleScroll();
-    window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('touchstart', this.handleScroll);
+    window.addEventListener('scroll', throttle(this.handleScroll, 500));
+    window.addEventListener('touchstart', throttle(this.handleScroll, 500));
   }
   
   componentWillUnmount() {
@@ -67,6 +68,7 @@ export default class Header extends Component {
   }
   
   handleScroll() {
+    console.info('scroll')
     const {isMenuOpen} = this.state;
     isMenuOpen && this.noscroll();
     
