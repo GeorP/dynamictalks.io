@@ -144,12 +144,7 @@ export default class Header extends Component {
     const {className, config} = this.props;
     const {isMenuOpen, isOnTop} = this.state;
     
-    if (isMenuOpen) {
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'visible';
-    }
-    console.info(isMenuOpen);
+    isMenuOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'visible';
     return (
       <section
         className={cx(CN, className)}
