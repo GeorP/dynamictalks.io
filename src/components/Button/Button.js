@@ -13,41 +13,53 @@ export default class Button extends Component {
   
   static propTypes = {
     
-    
-    theme: PropTypes.string,
-    // content:PropTypes.any
-    
     /**
      * className - classes which can be passed from parent
      */
+    
     className: PropTypes.string,
     
+    isBlack: PropTypes.bool,
+    
+    
     /**
-     * config - configuration object
+     * link - link to external source
      */
-    config: PropTypes.object.isRequired
+    link: PropTypes.string,
+    
+    target: PropTypes.string,
+    
+    /**
+     * text - text which is displaying in button
+     */
+    text: PropTypes.string.isRequired,
+    
     
   };
-  
-  static defaultProps = {};
   
   constructor(props) {
     super(props);
     
   }
   
+  static defaultProps = {
+    link: ''
+  };
+  
   
   render() {
-    const {className, children, config} = this.props;
+    const {className, link, text, isBlack, target = '_blank'} = this.props;
     
-    return <Anchor
-      className={cx(CN, className)}
-      href={config.externalEndpoints.registrationUrl}
-      id={CN}
-      target="_blank"
-    >
-      {children}
-    </Anchor>;
+    return (
+      <Anchor
+        className={cx(CN, className, isBlack && `${CN}-black`)}
+        href={link}
+        id={CN}
+        target={target}
+      >
+        <span>{text}</span>
+      </Anchor>
+    );
     
   }
 }

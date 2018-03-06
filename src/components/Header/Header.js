@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { RegistrationButton } from '../RegistrationButton';
 import { Anchor } from 'src/components/Anchor';
-import {throttle} from "src/utils/_";
+import { throttle } from 'src/utils/_';
 import pointerIconPath from 'src/images/header/pointer.svg';
 import calendarIconPath from 'src/images/header/calendar.svg';
 import snakeIconPath from 'src/images/header/snake.svg';
@@ -13,11 +13,18 @@ import mainLogoTitlePath from 'src/images/dt-logo.svg';
 import playDemoPath from 'src/images/header/play-sign.svg';
 import partnerLogoPath from 'src/images/header/logo-gd1.svg';
 import './Header.scss';
+import { Button } from 'src/components/Button/';
 
 
 export const CN = 'header';
 const NAV = 'navbar';
 const INFO = 'event-info';
+
+const PAGETYPES = {
+  BEFORE: 'BEFORE',
+  ONGOING: 'ONGOING',
+  AFTER: 'AFTER'
+};
 
 
 export default class Header extends Component {
@@ -35,14 +42,17 @@ export default class Header extends Component {
     config: PropTypes.object.isRequired,
   };
   
-  static defaultProps = {};
+  static
+  defaultProps = {};
   
   constructor(props) {
     super(props);
     
     this.state = {
       isMenuOpen: false,
-      isOnTop: false
+      isOnTop: false,
+      isEventStarted: false,
+      isEventFinished: false
     };
     
     this.onMenuClick = this.onMenuClick.bind(this);
@@ -51,10 +61,6 @@ export default class Header extends Component {
     
   }
   
-  noscroll() {
-    window.scrollTo(0, 0);
-    
-  }
   
   componentDidMount() {
     this.handleScroll();
@@ -68,7 +74,6 @@ export default class Header extends Component {
   }
   
   handleScroll() {
-    console.info('scroll')
     const {isMenuOpen} = this.state;
     isMenuOpen && this.noscroll();
     
@@ -79,6 +84,10 @@ export default class Header extends Component {
     }
   }
   
+  noscroll() {
+    window.scrollTo(0, 0);
+    
+  }
   
   renderIcon(path, altText, content) {
     let img = ( <img
@@ -102,12 +111,41 @@ export default class Header extends Component {
     });
   }
   
+  convertDate(ISOTimeStr) {
+    let getPad = (param) => {
+      return (param < 10) ? `0${param}` : param;
+    };
+    let date = new Date(ISOTimeStr);
+    return `${getPad(date.getMonth() + 1)}.${getPad(date.getDate())}.${date.getFullYear()}`;
+  }
+  
+  
+  definePageType() {
+    const {config: {eventInformation: {eventDate: {time}}}} = this.props;
+    const now = Date.now();
+    // const now = new Date('2018-03-11T15:18');
+    
+    const eventStartDate = new Date(time).getTime();
+    const finishedDate = (date => new Date(date.setDate(date.getDate() + 1)).getTime())(new Date(time));
+    
+    if ((now > eventStartDate) && (now < finishedDate)) {
+      return PAGETYPES.ONGOING;
+    } else if (now < eventStartDate) {
+      return PAGETYPES.BEFORE;
+    } else {
+      return PAGETYPES.AFTER;
+    }
+  }
+  
+  
   renderEventInfo() {
     const {config: {eventInformation: einfo}} = this.props;
+    const date = this.convertDate(einfo.eventDate.time);
+    
     return (
       <div className={cx(INFO)}>
         <div className={cx(`${INFO}__top`)}>
-          {this.renderIcon(calendarIconPath, 'calendarIconPath', '10.03.2018')}
+          {this.renderIcon(calendarIconPath, 'calendarIconPath', date)}
           {this.renderIcon(pointerIconPath, 'pointerIconPath', einfo.eventDate.place)}
         </div>
         <h1 className={cx(`${INFO}__title`)}>{einfo.title}</h1>
@@ -116,20 +154,48 @@ export default class Header extends Component {
     );
   }
   
-  renderPlayButton() {
+  renderInfoButton() {
     const {config: {buttonsText, externalEndpoints}} = this.props;
-    return (
-      <div className="play-btn">
+    const pageType = this.definePageType();
+    
+    let getButton = (text, link, isBlack) => {
+      return (
+        <Button
+          isBlack={isBlack}
+          key={text}
+          link={link}
+          text={text}
+        />);
+      
+    };
+    
+    if (pageType === PAGETYPES.ONGOING) {
+      return [
+        getButton(buttonsText.program, '#program', true),
+        getButton(buttonsText.layRoute, externalEndpoints.location)
+      ];
+    }
+    if (pageType === PAGETYPES.AFTER) {
+      return [
+        getButton(buttonsText.feedback, '#', true),
+        getButton(buttonsText.viewMaterials, '#')
+      ];
+    } else {
+      return (
         <Anchor
+          className={'play-btn'}
           href={externalEndpoints.promoVideo}
           id="play"
           target="_blank"
         >
-          {this.renderIcon(playDemoPath, 'play-demo')}
-          {buttonsText.playDemo}
+          <div>
+            {this.renderIcon(playDemoPath, 'play-demo')}
+            {buttonsText.playDemo}
+          </div>
         </Anchor>
-      </div>
-    );
+      );
+    }
+    
   }
   
   onMenuClick() {
@@ -146,6 +212,9 @@ export default class Header extends Component {
     const {className, config} = this.props;
     const {isMenuOpen, isOnTop} = this.state;
     
+    const pageType = this.definePageType();
+    console.info(pageType, 'pageType');
+    
     isMenuOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'visible';
     return (
       <section
@@ -154,7 +223,8 @@ export default class Header extends Component {
       
       >
         <div
-          className={cx(`${NAV}__wrapper`, !isOnTop && `${NAV}__wrapper--not-top`, isMenuOpen && `${NAV}__wrapper--menu-opened`)}>
+          className={cx(`${NAV}__wrapper`, !isOnTop && `${NAV}__wrapper--not-top`, isMenuOpen && `${NAV}__wrapper--menu-opened`)}
+        >
           <div className="container">
             <div className={cx(NAV)}>
               <Anchor
@@ -166,10 +236,10 @@ export default class Header extends Component {
               <nav className={cx(`${NAV}__menu`)}>
                 {this.renderNavLinks()}
               </nav>
-              <RegistrationButton
+              {pageType === PAGETYPES.BEFORE && <RegistrationButton
                 className={cx(`${NAV}__btn`)}
                 config={config}
-              />
+              />}
               <div className={cx(`${NAV}__burger-icon`)}>
                 <img
                   alt="burger-icon"
@@ -183,7 +253,9 @@ export default class Header extends Component {
         
         <div className={cx(`${CN}__event-info`)}>
           {this.renderEventInfo()}
-          {this.renderPlayButton()}
+          <div className="button--container">
+            {this.renderInfoButton()}
+          </div>
         </div>
         <div className="snake">
           {this.renderIcon(snakeIconPath, 'snakeIconPath-picture')}

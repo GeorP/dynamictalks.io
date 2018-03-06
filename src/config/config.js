@@ -55,7 +55,13 @@ export const config = {
 
   buttonsText: {
     registration: 'Реєстрація',
-    playDemo: 'Дивитися промо-відео'
+    playDemo: 'Дивитися промо-відео',
+    program:'Програма',
+    layRoute:'Прокласти маршрут',
+    vacancies:'Відкриті вакансії',
+    feedback:'Залишити відгук',
+    viewMaterials:'Переглянути матеріали'
+    
   },
 
   loadmoreButton: {
@@ -76,7 +82,7 @@ export const config = {
     partnerText: 'Генеральний партнер',
     eventDate: {
       city: 'Львів',
-      time: '2018-10-03T10:00',
+      time: '2018-03-06T15:18',
       timeString: '10 березня, 2018',
       place: 'м.Львів, вул.Галицька, 1, COMMUNA'
     },

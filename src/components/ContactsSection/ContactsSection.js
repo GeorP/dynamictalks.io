@@ -48,8 +48,7 @@ export default class ContactsSection extends Component {
 
             <Heading title={titles.contacts_section}/>
             <div className="contacts_info">
-
-
+              
               <div className="contacts_info__calendar">
                 <img
                   alt="calendar"
@@ -73,8 +72,7 @@ export default class ContactsSection extends Component {
                 <h5>{eventAddress.addressLines[1]}</h5>
                 <p>{eventAddress.addressLines[2]}</p>
               </div>
-
-
+              
             </div>
 
           </div>
@@ -86,8 +84,8 @@ export default class ContactsSection extends Component {
 
         </div>
 
-        <div className='btn-block'>
-          <a className='map_btn' href={externalEndpoints.location}
+        <div className="btn-block">
+          <a className="map_btn" href={externalEndpoints.location}
           >Прокласти маршрут</a>
         </div>
 

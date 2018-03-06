@@ -2,19 +2,28 @@
 @import "../../mixins.scss";
 
 .button {
+  $root: &;
+  text-align: center;
+  padding: 10px 25px;
+  border: 2px solid black;
   text-transform: uppercase;
-  color: $color-white;
-  text-decoration: none;
-  @include font-family-gothamPro-medium();
 
-  @include respond-to("(max-width:950px)"){
-    padding: 10px;
-    font-size: 15px;
+
+  a {
+    color: $color-white;
+
+    &:hover {
+      color: $color-hover-green;
+      background: $color-black;
+    }
   }
 
-  &__burger-icon {
-      display: none;
-      cursor: pointer;
-  }
+  &-black {
+    background: $color-black;
+    color: $color-white;
 
+    #{root}:hover {
+      color: $color-hover-green;
+    }
+  }
 }

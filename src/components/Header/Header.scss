@@ -259,19 +259,19 @@
     }
   }
 
-  .play-btn {
+  .button--container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 
     & > a {
-      display: flex;
-      align-items: center;
-      align-self: center;
       padding: 20px 22px;
       border: 2px solid $color-black;
       cursor: pointer;
       text-transform: uppercase;
       @include font-family-gothamPro-bold();
+      flex-basis: 260px;
+      text-align: center;
 
       & > img {
         margin-right: 15px;
@@ -291,6 +291,20 @@
         width: 200px;
         font-size: 12px;
 
+      }
+
+      @include respond-to("(max-width:660px)") {
+        &:nth-child(2) {
+          margin-top: 25px;
+        }
+      }
+
+    }
+    .play-btn {
+      & > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
       }
 
     }
