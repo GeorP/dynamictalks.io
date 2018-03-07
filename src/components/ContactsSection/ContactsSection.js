@@ -78,7 +78,7 @@ export default class ContactsSection extends Component {
                 <p>{eventAddress.addressLines[2]}</p>
               </div>
               
-              {pageType === PAGETYPES.ONGOING && <Button text={buttonsText.layRoute}/>}
+              {pageType !== PAGETYPES.AFTER && <Button text={buttonsText.layRoute}/>}
               
             </div>
 
