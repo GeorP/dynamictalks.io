@@ -5,6 +5,8 @@ import './ContactsSection.scss';
 import {Heading} from 'src/components/Heading';
 import map_icon from 'src/images/map.svg';
 import calendar_icon from 'src/images/icon@2x.png';
+import Button from 'src/components/Button/Button';
+import {definePageType,PAGETYPES} from 'src/utils/definePageType';
 
 export default class ContactsSection extends Component {
 
@@ -35,8 +37,11 @@ export default class ContactsSection extends Component {
       eventAddress,
       eventDate,
       titles,
-      externalEndpoints
+      externalEndpoints,
+      buttonsText
     } = this.props.config;
+    
+    const pageType = definePageType();
 
     return (
       <section
@@ -73,19 +78,24 @@ export default class ContactsSection extends Component {
                 <p>{eventAddress.addressLines[2]}</p>
               </div>
               
+              {pageType === PAGETYPES.ONGOING && <Button text={buttonsText.layRoute}/>}
+              
             </div>
 
           </div>
 
           <div
             className="map-container"
-            dangerouslySetInnerHTML={{__html: eventAddress.googleMapEmbed}} // eslint-disable
+            dangerouslySetInnerHTML={{__html: eventAddress.googleMapEmbed}} // eslint-disable react/no-danger
           />
 
         </div>
 
         <div className="btn-block">
-          <a className="map_btn" href={externalEndpoints.location}
+          <a
+            className="map_btn"
+            href={externalEndpoints.location
+            }
           >Прокласти маршрут</a>
         </div>
 

@@ -82,7 +82,7 @@ export const config = {
     partnerText: 'Генеральний партнер',
     eventDate: {
       city: 'Львів',
-      time: '2018-03-06T15:18',
+      time: '2018-03-10T15:18',
       timeString: '10 березня, 2018',
       place: 'м.Львів, вул.Галицька, 1, COMMUNA'
     },

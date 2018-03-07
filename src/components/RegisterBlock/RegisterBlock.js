@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import './RegisterBlock.scss';
+import {definePageType,PAGETYPES} from 'src/utils/definePageType';
 
 const CN = 'register-block';
 
@@ -23,6 +24,10 @@ export default class RegisterBlock extends Component {
   }
 
   render() {
+    const pageType = definePageType();
+    if(pageType !== PAGETYPES.BEFORE){
+      return null;
+    }
     const {config} = this.props;
     return(
       <section className={cx(CN)}>

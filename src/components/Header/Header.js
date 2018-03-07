@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { RegistrationButton } from '../RegistrationButton';
 import { Anchor } from 'src/components/Anchor';
-import { throttle } from 'src/utils/_';
 import pointerIconPath from 'src/images/header/pointer.svg';
 import calendarIconPath from 'src/images/header/calendar.svg';
 import snakeIconPath from 'src/images/header/snake.svg';
@@ -14,17 +13,13 @@ import playDemoPath from 'src/images/header/play-sign.svg';
 import partnerLogoPath from 'src/images/header/logo-gd1.svg';
 import './Header.scss';
 import { Button } from 'src/components/Button/';
+import { throttle } from 'src/utils/_';
+import { PAGETYPES, definePageType } from 'src/utils/definePageType';
 
 
 export const CN = 'header';
 const NAV = 'navbar';
 const INFO = 'event-info';
-
-const PAGETYPES = {
-  BEFORE: 'BEFORE',
-  ONGOING: 'ONGOING',
-  AFTER: 'AFTER'
-};
 
 
 export default class Header extends Component {
@@ -120,24 +115,6 @@ export default class Header extends Component {
   }
   
   
-  definePageType() {
-    const {config: {eventInformation: {eventDate: {time}}}} = this.props;
-    const now = Date.now();
-    // const now = new Date('2018-03-11T15:18');
-    
-    const eventStartDate = new Date(time).getTime();
-    const finishedDate = (date => new Date(date.setDate(date.getDate() + 1)).getTime())(new Date(time));
-    
-    if ((now > eventStartDate) && (now < finishedDate)) {
-      return PAGETYPES.ONGOING;
-    } else if (now < eventStartDate) {
-      return PAGETYPES.BEFORE;
-    } else {
-      return PAGETYPES.AFTER;
-    }
-  }
-  
-  
   renderEventInfo() {
     const {config: {eventInformation: einfo}} = this.props;
     const date = this.convertDate(einfo.eventDate.time);
@@ -156,7 +133,7 @@ export default class Header extends Component {
   
   renderInfoButton() {
     const {config: {buttonsText, externalEndpoints}} = this.props;
-    const pageType = this.definePageType();
+    const pageType = definePageType();
     
     let getButton = (text, link, isBlack) => {
       return (
@@ -212,7 +189,7 @@ export default class Header extends Component {
     const {className, config} = this.props;
     const {isMenuOpen, isOnTop} = this.state;
     
-    const pageType = this.definePageType();
+    const pageType = definePageType();
     console.info(pageType, 'pageType');
     
     isMenuOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'visible';
@@ -236,10 +213,12 @@ export default class Header extends Component {
               <nav className={cx(`${NAV}__menu`)}>
                 {this.renderNavLinks()}
               </nav>
-              {pageType === PAGETYPES.BEFORE && <RegistrationButton
+              {pageType === PAGETYPES.BEFORE &&
+              <RegistrationButton
                 className={cx(`${NAV}__btn`)}
                 config={config}
-              />}
+              />
+              }
               <div className={cx(`${NAV}__burger-icon`)}>
                 <img
                   alt="burger-icon"
@@ -260,7 +239,8 @@ export default class Header extends Component {
         <div className="snake">
           {this.renderIcon(snakeIconPath, 'snakeIconPath-picture')}
         </div>
-        {isMenuOpen && <div
+        {isMenuOpen &&
+        <div
           className={cx(isMenuOpen && 'collapse-menu--visible', 'collapse-menu')}
           onClick={this.closeMenu}
         >

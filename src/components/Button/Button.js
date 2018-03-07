@@ -37,18 +37,16 @@ export default class Button extends Component {
     
   };
   
+  static defaultProps = {};
+  
   constructor(props) {
     super(props);
     
   }
   
-  static defaultProps = {
-    link: ''
-  };
-  
   
   render() {
-    const {className, link, text, isBlack, target = '_blank'} = this.props;
+    const {className, link = '', text, isBlack, target = '_blank'} = this.props;
     
     return (
       <Anchor
