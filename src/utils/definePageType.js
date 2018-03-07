@@ -1,4 +1,4 @@
-import {config} from 'src/config/config';
+import { config } from 'src/config/config';
 
 export const PAGETYPES = {
   BEFORE: 'BEFORE',
@@ -7,7 +7,7 @@ export const PAGETYPES = {
 };
 
 export function definePageType() {
-  const {eventInformation: {eventDate: {time}}} =config;
+  const {eventInformation: {eventDate: {time}}} = config;
   const now = Date.now();
   // const now = new Date('2018-03-11T15:18');
   

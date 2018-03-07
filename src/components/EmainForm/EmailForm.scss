@@ -1,0 +1,116 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.email-form {
+  max-width: 750px;
+  margin: 0 auto 50px;
+  box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.08);
+  background: url("../../images/shape.png") no-repeat 110%;
+
+  &--content {
+    padding: 30px;
+  }
+
+  @include respond-to($tablet-portrait) {
+    background-size: 60% 80%;
+    background-position: 135%
+  }
+
+
+  &--title {
+    display: flex;
+    justify-content: center;
+
+    h4 {
+      font-size: $font-size-medium;
+      @include font-family-gothamPro-bold();
+      padding-bottom: 20px;
+      max-width: 500px;
+      text-align: center;
+
+    }
+  }
+
+  &--form-wrap {
+    display: flex;
+    justify-content: space-between;
+    max-width: 600px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    @include respond-to($phone) {
+      justify-content: center;
+      input {
+        margin-bottom: 30px;
+      }
+    }
+
+  }
+
+  &--input {
+    width: 50%;
+    padding: 12px;
+    border: 1px solid $color-black;
+
+
+    &::placeholder {
+      color: $color-gray;
+
+    }
+
+    &:-ms-input-placeholder {
+      color: $color-gray;
+    }
+
+    &:-ms-input-placeholder {
+      color: $color-gray;
+    }
+
+    @include respond-to($phone) {
+      width: 174px;
+    }
+
+
+
+
+  }
+
+  &--label {
+    display: block;
+
+    a{
+      @include respond-to($phone) {
+        padding: 12px 25px;
+      }
+    }
+
+  }
+
+
+  @include respond-to($tablet-portrait) {
+    width: 540px;
+  }
+
+  @include respond-to($phone) {
+    width: 290px;
+    font-size: 14px;
+  }
+
+
+}
+
+.green {
+  background: $color-primary-green;
+
+  .email-form--content {
+    background: url("../../images/shape-white.png") no-repeat 110%;
+
+    @include respond-to($tablet-portrait) {
+      background-size: 60% 80%;
+      background-position: 135%
+    }
+  }
+
+}
+

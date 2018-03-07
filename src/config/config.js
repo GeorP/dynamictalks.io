@@ -8,21 +8,22 @@ export const config = {
     ],
     googleMapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.076540122793!2d24.029019415632334!3d49.84101933896939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add6dca0c9b13%3A0x2797b7e6a216b902!2z0LLRg9C70LjRhtGPINCT0LDQu9C40YbRjNC60LAsIDEsINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1520001652497" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
   },
-
-
+  
+  
   titles: {
     speakers_section: 'наші спікери',
     contacts_section: 'Dynamic JS Talks #3',
     partners_section: 'НАШІ ПАРТНЕРИ',
     previous_speakers_section: 'ПОПЕРЕДНІ СПІКЕРИ',
-    about_us: 'Про нас'
+    about_us: 'Про нас',
+    emailForm: 'Залиште нам свій емаіл і ми Вас повідомимо про наступні події'
   },
-
+  
   iconUrl: {
     calendar: 'images/icon@2x.png',
     map: 'images/icon copy.png'
   },
-
+  
   socialNetworks: [
     {
       name: 'facebook',
@@ -45,29 +46,29 @@ export const config = {
       link: 'https://www.linkedin.com/company/250774/'
     }
   ],
-
-
+  
+  
   eventDate: {
     city: 'Львів',
     time: '2017-03-10T10:00',
     timeString: '10 березня, 2018'
   },
-
+  
   buttonsText: {
     registration: 'Реєстрація',
     playDemo: 'Дивитися промо-відео',
-    program:'Програма',
-    layRoute:'Прокласти маршрут',
-    vacancies:'Відкриті вакансії',
-    feedback:'Залишити відгук',
-    viewMaterials:'Переглянути матеріали'
+    program: 'Програма',
+    layRoute: 'Прокласти маршрут',
+    vacancies: 'Відкриті вакансії',
+    feedback: 'Залишити відгук',
+    viewMaterials: 'Переглянути матеріали'
     
   },
-
+  
   loadmoreButton: {
     text: 'Показати ще'
   },
-
+  
   headerNavigationLinks: [
     {title: 'Хто', href: '#speakers'},
     {title: 'Програма', href: '#schedule'},
@@ -75,7 +76,7 @@ export const config = {
     {title: 'Про нас', href: '#about'},
     {title: 'Партнери', href: '#partners'}
   ],
-
+  
   eventInformation: {
     title: 'Dynamic js talks #3',
     slogan: 'The frontend meetup for experienced developers',
@@ -87,7 +88,7 @@ export const config = {
       place: 'м.Львів, вул.Галицька, 1, COMMUNA'
     },
   },
-
+  
   externalEndpoints: {
     registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe98SDjiuK5F-0GQe3yV08TllaFMBd419E7Ogjb5h7mcQsTSQ/viewform',
     materialsUrl: 'https://dynamictalks.io/public-materials',
@@ -103,7 +104,7 @@ export const config = {
     promoVideo: 'https://www.youtube.com/watch?v=fpVmtc2A3H8&feature=youtu.be',
     instagram: 'https://www.instagram.com/explore/tags/griddynamics_lviv/'
   },
-
+  
   speakers: [
     {
       name: 'Ярослав Заблоцький',
@@ -146,14 +147,14 @@ export const config = {
       ]
     }
   ],
-
+  
   previousSpeakers: [
-
+    
     {
       name: 'Любомир Семків',
       state: 'спеціальний гість',
       position: 'Senior software engineer / Intellias',
-      link:'https://www.linkedin.com/in/lyubomyr-semkiv-0627a732/',
+      link: 'https://www.linkedin.com/in/lyubomyr-semkiv-0627a732/',
       specialGuest: true,
       imageSrc: 'images/speakers/semkiv.jpg',
       bullets: []
@@ -162,7 +163,7 @@ export const config = {
       name: 'Володимир Воєвідка',
       state: '',
       position: 'UI engineer / Grid Dynamics',
-      link:'https://www.linkedin.com/in/vovavoevidka/',
+      link: 'https://www.linkedin.com/in/vovavoevidka/',
       specialGuest: false,
       imageSrc: 'images/speakers/volodymyr_voyevidka.jpg',
       bullets: []
@@ -171,7 +172,7 @@ export const config = {
       name: 'Георгій Подсвєтов',
       state: '',
       position: 'Practice director UI technologies / Grid Dynamics',
-      link:'https://www.linkedin.com/in/georgiy-podsvetov-86898945/',
+      link: 'https://www.linkedin.com/in/georgiy-podsvetov-86898945/',
       specialGuest: false,
       imageSrc: 'images/speakers/podsvyetov.jpg',
       bullets: []
