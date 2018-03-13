@@ -154,8 +154,7 @@ export default class Header extends Component {
     }
     if (pageType === PAGETYPES.AFTER) {
       return [
-        getButton(buttonsText.feedback, '#', true),
-        getButton(buttonsText.viewMaterials, '#')
+        getButton(buttonsText.viewMaterials, externalEndpoints.materialsUrl)
       ];
     } else {
       return (
