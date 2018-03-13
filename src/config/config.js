@@ -70,9 +70,6 @@ export const config = {
   },
   
   headerNavigationLinks: [
-    {title: 'Хто', href: '#speakers'},
-    {title: 'Програма', href: '#schedule'},
-    {title: 'Коли і де', href: '#contacts'},
     {title: 'Про нас', href: '#about'},
     {title: 'Партнери', href: '#partners'}
   ],

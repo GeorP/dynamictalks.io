@@ -8,7 +8,6 @@ import { Schedule } from '../Schedule';
 import { Partners } from '../Partners';
 import { PreviousSpeakers } from '../PreviousSpeakers';
 import { Footer } from '../Footer';
-import { EmailForm } from 'src/components/EmainForm';
 import './App.scss';
 import { AboutUsSection } from '../AboutUsSection';
 import { definePageType, PAGETYPES } from 'src/utils/definePageType';
