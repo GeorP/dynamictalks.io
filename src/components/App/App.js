@@ -70,9 +70,7 @@ export default class App extends Component {
           config={config}
           id={SECTIONS.ABOUT}
         />
-        {isEventFinised &&
-        <EmailForm config={config}/>
-        }
+        
         <Partners
           config={config}
           id={SECTIONS.PARTNERS}
@@ -82,12 +80,6 @@ export default class App extends Component {
           config={config}
         />
         
-        {isEventFinised &&
-        <EmailForm
-          className="green"
-          config={config}
-        />
-        }
         <Footer config={config}/>
       </div>
     );
