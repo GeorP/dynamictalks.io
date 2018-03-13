@@ -4,7 +4,8 @@ import cx from 'classnames';
 import { Heading } from '../Heading';
 import './Partners.scss';
 import gd from 'src/images/gd-logo.png';
-
+import { definePageType, PAGETYPES } from 'src/utils/definePageType';
+import Button from 'src/components/Button/Button';
 // import twitter from 'src/images/twitter.svg';
 // import facebook from 'src/images/facebook.svg';
 // import linkedin from 'src/images/linkedin-1.svg';
@@ -31,6 +32,7 @@ export default class Partners extends Component {
   
   render() {
     const {config, id} = this.props;
+    const pageType = definePageType();
     return (
       <section
         className={cx(CN)}
@@ -73,6 +75,14 @@ export default class Partners extends Component {
                   />
                 </a>
               </div>
+              {pageType === PAGETYPES.ONGOING &&
+              <div className={cx(`${CN}_general_content_desc_vacancies-btn`)}>
+                <Button
+                  link={config.externalEndpoints.vacanciesUrl}
+                  text={config.buttonsText.vacancies}
+                />
+              </div>
+              }
             </div>
           </div>
         </div>

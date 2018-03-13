@@ -29,7 +29,6 @@
     border: 2px solid $color-primary-green;
     width: 60%;
     position: relative;
-    z-index: -1;
     top: 40px;
     line-height: 1.6;
     @include font-family-gothamPro-bold();
@@ -175,6 +174,8 @@
             text-align: left;
           }
         }
+
+        margin-bottom: 40px;
       }
 
     }

@@ -101,6 +101,17 @@
           }
         }
 
+        &_vacancies-btn {
+          display: flex;
+          justify-content: flex-start;
+
+          @include respond-to($tablet-portrait) {
+            justify-content: center;
+          }
+
+
+        }
+
         &_btn {
           @include respond-to($tablet-portrait) {
             text-align: center;
