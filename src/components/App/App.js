@@ -27,7 +27,7 @@ export default class App extends Component {
   
   render() {
     return (
-      <div>
+      <div className="root--container">
         <Header
           config={config}
           id={SECTIONS.HEADER}

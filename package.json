@@ -3,7 +3,7 @@
   "version": "3.1.0",
   "description": "Meetup page",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --host 0.0.0.0",
     "clean": "rimraf dist",
     "production": "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
     "deploy": "./deploy.sh",

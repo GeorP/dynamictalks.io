@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { RegistrationButton } from '../RegistrationButton';
 import { Anchor } from 'src/components/Anchor';
+import {throttle} from "src/utils/_";
 import pointerIconPath from 'src/images/header/pointer.svg';
 import calendarIconPath from 'src/images/header/calendar.svg';
 import snakeIconPath from 'src/images/header/snake.svg';
@@ -20,63 +21,72 @@ const INFO = 'event-info';
 
 
 export default class Header extends Component {
-
+  
   static propTypes = {
-
+    
     /**
      * className - classes which can be passed from parent
      */
     className: PropTypes.string,
-
+    
     /**
      * config - configuration object
      */
     config: PropTypes.object.isRequired,
   };
-
+  
   static defaultProps = {};
-
+  
   constructor(props) {
     super(props);
-
+    
     this.state = {
       isMenuOpen: false,
       isOnTop: false
     };
-
+    
     this.onMenuClick = this.onMenuClick.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-
+    
   }
-
+  
+  noscroll() {
+    window.scrollTo(0, 0);
+    
+  }
+  
   componentDidMount() {
     this.handleScroll();
-    window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('touchstart', this.handleScroll);
+    window.addEventListener('scroll', throttle(this.handleScroll, 500));
+    window.addEventListener('touchstart', throttle(this.handleScroll, 500));
   }
-
+  
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('touchstart', this.handleScroll);
   }
-
+  
   handleScroll() {
+    console.info('scroll')
+    const {isMenuOpen} = this.state;
+    isMenuOpen && this.noscroll();
+    
     if (window.scrollY === 0 && !this.state.isOnTop) {
-      this.setState({ isOnTop: true });
+      this.setState({isOnTop: true});
     } else if (window.scrollY > 0 && this.state.isOnTop) {
-      this.setState({ isOnTop: false });
+      this.setState({isOnTop: false});
     }
   }
-
-
+  
+  
   renderIcon(path, altText, content) {
     let img = ( <img
       alt={altText}
       src={path}/>);
     return content ? <span> {img} {content}</span> : img;
   }
-
+  
   renderNavLinks() {
     const {config: {headerNavigationLinks}} = this.props;
     return headerNavigationLinks.map((item, i) => {
@@ -91,7 +101,7 @@ export default class Header extends Component {
         </Anchor>);
     });
   }
-
+  
   renderEventInfo() {
     const {config: {eventInformation: einfo}} = this.props;
     return (
@@ -105,7 +115,7 @@ export default class Header extends Component {
       </div>
     );
   }
-
+  
   renderPlayButton() {
     const {config: {buttonsText, externalEndpoints}} = this.props;
     return (
@@ -121,28 +131,30 @@ export default class Header extends Component {
       </div>
     );
   }
-
+  
   onMenuClick() {
     this.setState((prevState) => {
       return {isMenuOpen: !prevState.isMenuOpen};
     });
   }
-
+  
   closeMenu() {
     this.setState({isMenuOpen: false});
   }
-
+  
   render() {
     const {className, config} = this.props;
     const {isMenuOpen, isOnTop} = this.state;
-
+    
+    isMenuOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'visible';
     return (
       <section
         className={cx(CN, className)}
         id="header"
-
+      
       >
-        <div className={cx(`${NAV}__wrapper`, !isOnTop && `${NAV}__wrapper--not-top`, isMenuOpen && `${NAV}__wrapper--menu-opened`)}>
+        <div
+          className={cx(`${NAV}__wrapper`, !isOnTop && `${NAV}__wrapper--not-top`, isMenuOpen && `${NAV}__wrapper--menu-opened`)}>
           <div className="container">
             <div className={cx(NAV)}>
               <Anchor
@@ -168,7 +180,7 @@ export default class Header extends Component {
             </div>
           </div>
         </div>
-
+        
         <div className={cx(`${CN}__event-info`)}>
           {this.renderEventInfo()}
           {this.renderPlayButton()}
@@ -176,7 +188,7 @@ export default class Header extends Component {
         <div className="snake">
           {this.renderIcon(snakeIconPath, 'snakeIconPath-picture')}
         </div>
-        <div
+        {isMenuOpen && <div
           className={cx(isMenuOpen && 'collapse-menu--visible', 'collapse-menu')}
           onClick={this.closeMenu}
         >
@@ -187,7 +199,7 @@ export default class Header extends Component {
               config={config}
             />
           </div>
-        </div>
+        </div>}
         <div className="partner">
           <div className="partner__wrap">
             <Anchor
