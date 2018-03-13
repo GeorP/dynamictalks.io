@@ -112,8 +112,13 @@
         width: 600px;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: center;
         margin-bottom: 20px;
+
+        h2 {
+          text-transform: uppercase;
+          @include font-family-gothamPro-medium();
+        }
 
         @media screen and (min-width: 320px) and (max-width: 400px) {
           width: 100% !important;
@@ -165,8 +170,8 @@
         margin-bottom: 30px;
 
         &__top {
-          width: 390px;
-          justify-content: flex-start;
+          width: 100%;
+          justify-content: center;
         }
 
       }

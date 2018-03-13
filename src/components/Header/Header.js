@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { RegistrationButton } from '../RegistrationButton';
 import { Anchor } from 'src/components/Anchor';
-import pointerIconPath from 'src/images/header/pointer.svg';
-import calendarIconPath from 'src/images/header/calendar.svg';
 import snakeIconPath from 'src/images/header/snake.svg';
 import menuBurgerClosePath from 'src/images/header/burger.svg';
 import menuBurgerOpenPath from 'src/images/header/burger-close.svg';
@@ -122,8 +120,7 @@ export default class Header extends Component {
     return (
       <div className={cx(INFO)}>
         <div className={cx(`${INFO}__top`)}>
-          {this.renderIcon(calendarIconPath, 'calendarIconPath', date)}
-          {this.renderIcon(pointerIconPath, 'pointerIconPath', einfo.eventDate.place)}
+         <h2>Подію завершено</h2>
         </div>
         <h1 className={cx(`${INFO}__title`)}>{einfo.title}</h1>
         <h2 className={cx(`${INFO}__slogan`)}>{einfo.slogan}</h2>
