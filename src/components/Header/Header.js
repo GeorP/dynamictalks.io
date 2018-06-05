@@ -23,74 +23,74 @@ const INFO = 'event-info';
 
 
 export default class Header extends Component {
-  
+
   static propTypes = {
-    
+
     /**
      * className - classes which can be passed from parent
      */
     className: PropTypes.string,
-    
+
     /**
      * config - configuration object
      */
     config: PropTypes.object.isRequired,
   };
-  
+
   static
   defaultProps = {};
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
       isMenuOpen: false,
       isOnTop: false,
       isEventStarted: false,
       isEventFinished: false
     };
-    
+
     this.onMenuClick = this.onMenuClick.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    
+
   }
-  
-  
+
+
   componentDidMount() {
     this.handleScroll();
     window.addEventListener('scroll', throttle(this.handleScroll, 500));
     window.addEventListener('touchstart', throttle(this.handleScroll, 500));
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     window.removeEventListener('touchstart', this.handleScroll);
   }
-  
+
   handleScroll() {
     const {isMenuOpen} = this.state;
     isMenuOpen && this.noscroll();
-    
+
     if (window.scrollY === 0 && !this.state.isOnTop) {
       this.setState({isOnTop: true});
     } else if (window.scrollY > 0 && this.state.isOnTop) {
       this.setState({isOnTop: false});
     }
   }
-  
+
   noscroll() {
     window.scrollTo(0, 0);
-    
+
   }
-  
+
   renderIcon(path, altText, content) {
     let img = ( <img
       alt={altText}
       src={path}/>);
     return content ? <span> {img} {content}</span> : img;
   }
-  
+
   renderNavLinks() {
     const {config: {headerNavigationLinks}} = this.props;
     return headerNavigationLinks.map((item, i) => {
@@ -105,7 +105,7 @@ export default class Header extends Component {
         </Anchor>);
     });
   }
-  
+
   convertDate(ISOTimeStr) {
     let getPad = (param) => {
       return (param < 10) ? `0${param}` : param;
@@ -113,28 +113,28 @@ export default class Header extends Component {
     let date = new Date(ISOTimeStr);
     return `${getPad(date.getMonth() + 1)}.${getPad(date.getDate())}.${date.getFullYear()}`;
   }
-  
-  
+
+
   renderEventInfo() {
-    const {config: {eventInformation: einfo}} = this.props;
-    const date = this.convertDate(einfo.eventDate.time);
-    
+    const { eventInformation, eventAddress, eventDate, titles } = this.props.config;
+    const date = this.convertDate(eventDate.time);
+
     return (
       <div className={cx(INFO)}>
         <div className={cx(`${INFO}__top`)}>
           {this.renderIcon(calendarIconPath, 'calendarIconPath', date)}
-          {this.renderIcon(pointerIconPath, 'pointerIconPath', einfo.eventDate.place)}
+          {this.renderIcon(pointerIconPath, 'pointerIconPath', eventAddress.addressShort)}
         </div>
-        <h1 className={cx(`${INFO}__title`)}>{einfo.title}</h1>
-        <h2 className={cx(`${INFO}__slogan`)}>{einfo.slogan}</h2>
+        <h1 className={cx(`${INFO}__title`)}>{titles.contacts_section}</h1>
+        <h2 className={cx(`${INFO}__slogan`)}>{eventInformation.slogan}</h2>
       </div>
     );
   }
-  
+
   renderInfoButton() {
     const {config: {buttonsText, externalEndpoints}} = this.props;
     const pageType = definePageType();
-    
+
     let getButton = (text, link, isBlack) => {
       return (
         <Button
@@ -143,9 +143,9 @@ export default class Header extends Component {
           link={link}
           text={text}
         />);
-      
+
     };
-    
+
     if (pageType === PAGETYPES.ONGOING) {
       return [
         getButton(buttonsText.program, '#program', true),
@@ -171,32 +171,32 @@ export default class Header extends Component {
         </Anchor>
       );
     }
-    
+
   }
-  
+
   onMenuClick() {
     this.setState((prevState) => {
       return {isMenuOpen: !prevState.isMenuOpen};
     });
   }
-  
+
   closeMenu() {
     this.setState({isMenuOpen: false});
   }
-  
+
   render() {
     const {className, config} = this.props;
     const {isMenuOpen, isOnTop} = this.state;
-    
+
     const pageType = definePageType();
     console.info(pageType, 'pageType');
-    
+
     isMenuOpen ? document.body.style.overflowY = 'hidden' : document.body.style.overflowY = 'visible';
     return (
       <section
         className={cx(CN, className)}
         id="header"
-      
+
       >
         <div
           className={cx(`${NAV}__wrapper`, !isOnTop && `${NAV}__wrapper--not-top`, isMenuOpen && `${NAV}__wrapper--menu-opened`)}
@@ -228,7 +228,7 @@ export default class Header extends Component {
             </div>
           </div>
         </div>
-        
+
         <div className={cx(`${CN}__event-info`)}>
           {this.renderEventInfo()}
           <div className="button--container">

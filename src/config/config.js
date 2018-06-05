@@ -6,24 +6,34 @@ export const config = {
       '2-й поверх\n' +
       '(на розі Площі Ринок)'
     ],
+    addressShort: 'м.Львів, вул.Галицька, 1, COMMUNA',
     googleMapEmbed: '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.076540122793!2d24.029019415632334!3d49.84101933896939!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add6dca0c9b13%3A0x2797b7e6a216b902!2z0LLRg9C70LjRhtGPINCT0LDQu9C40YbRjNC60LAsIDEsINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1520001652497" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
   },
-  
-  
+
+  eventInformation: {
+    slogan: 'The frontend meetup for experienced developers'
+  },
+
+  eventDate: {
+    city: 'Львів',
+    time: '2018-06-23T10:00',
+    timeString: '23 червня, 2018'
+  },
+
   titles: {
     speakers_section: 'наші спікери',
-    contacts_section: 'Dynamic JS Talks #3',
+    contacts_section: 'Dynamic JS Talks #4',
     partners_section: 'НАШІ ПАРТНЕРИ',
     previous_speakers_section: 'ПОПЕРЕДНІ СПІКЕРИ',
     about_us: 'Про нас',
     emailForm: 'Залиште нам свій емаіл і ми Вас повідомимо про наступні події'
   },
-  
+
   iconUrl: {
     calendar: 'images/icon@2x.png',
     map: 'images/icon copy.png'
   },
-  
+
   socialNetworks: [
     {
       name: 'facebook',
@@ -46,14 +56,7 @@ export const config = {
       link: 'https://www.linkedin.com/company/250774/'
     }
   ],
-  
-  
-  eventDate: {
-    city: 'Львів',
-    time: '2017-03-10T10:00',
-    timeString: '10 березня, 2018'
-  },
-  
+
   buttonsText: {
     registration: 'Реєстрація',
     playDemo: 'Дивитися промо-відео',
@@ -62,13 +65,12 @@ export const config = {
     vacancies: 'Відкриті вакансії',
     feedback: 'Залишити відгук',
     viewMaterials: 'Переглянути матеріали'
-    
   },
-  
+
   loadmoreButton: {
     text: 'Показати ще'
   },
-  
+
   headerNavigationLinks: [
     {title: 'Хто', href: '#speakers'},
     {title: 'Програма', href: '#schedule'},
@@ -76,19 +78,7 @@ export const config = {
     {title: 'Про нас', href: '#about'},
     {title: 'Партнери', href: '#partners'}
   ],
-  
-  eventInformation: {
-    title: 'Dynamic js talks #3',
-    slogan: 'The frontend meetup for experienced developers',
-    partnerText: 'Генеральний партнер',
-    eventDate: {
-      city: 'Львів',
-      time: '2018-03-10T15:18',
-      timeString: '10 березня, 2018',
-      place: 'м.Львів, вул.Галицька, 1, COMMUNA'
-    },
-  },
-  
+
   externalEndpoints: {
     registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe98SDjiuK5F-0GQe3yV08TllaFMBd419E7Ogjb5h7mcQsTSQ/viewform',
     materialsUrl: 'https://dynamictalks.io/public-materials',
@@ -104,52 +94,59 @@ export const config = {
     promoVideo: 'https://www.youtube.com/watch?v=fpVmtc2A3H8&feature=youtu.be',
     instagram: 'https://www.instagram.com/explore/tags/griddynamics_lviv/'
   },
-  
+
   speakers: [
+    {
+      name: 'Ліза Воронкова',
+      state: 'спеціальний гість',
+      position: 'CEO, founder, FORCE',
+      topic: 'Как разработать свой хардварный продукт, который не стыдно показать маме - опыт команды FORCE',
+      specialGuest: true,
+      link: 'https://www.linkedin.com/in/lisa-voronkova-34298990/',
+      imageSrc: 'images/speakers/lisa_voronkova.jpg',
+      bullets: []
+    },
+    {
+      name: 'Володимир Сен',
+      state: '',
+      position: 'UI engineer / Grid Dynamics',
+      topic: 'Як розвивалися CSS макети з часом?',
+      link: 'https://www.facebook.com/volodymyr.sen',
+      imageSrc: 'images/speakers/volodymyr_sen.jpg',
+      bullets: [
+        'Як ефективно використовувати CSS інструменти для побудови макетів?',
+        'Яку майбутнє у СSS засобів?'
+      ]
+    },
+    {
+      name: 'Дем\'ян Костельний',
+      state: '',
+      position: 'Middle PHP Developer',
+      topic: 'Криптографія в JavaScript',
+      specialGuest: false,
+      link: 'https://www.facebook.com/profile.php?id=100007051546205',
+      imageSrc: 'images/speakers/demian_kostelny.jpg',
+      bullets: [
+        'Історія крипрографії',
+        'Чому криптографія як ніколи актуальна в наш час',
+        'Алгоритми шифрування з прикладами на JavaScript'
+      ]
+    }
+  ],
+
+  previousSpeakers: [
     {
       name: 'Ярослав Заблоцький',
       state: 'спеціальний гість',
       position: 'Власник мережі стоматологічних клінік TM "Клініка Заблоцького"',
-      topic: 'Як побудувати бізнес від нуля до мільйона в Україні',
-      specialGuest: false,
       link: 'https://www.facebook.com/yaroslav.zablotskyy',
+      specialGuest: true,
       imageSrc: 'images/speakers/yz_1.jpg',
       bullets: ['Ярослав Заблоцький – д.м.н., професор, керівник приватної Академії, практикуючий лікар. Власник мережі стоматологічних клінік TM “Клініка Заблоцького” – сервісної компанії №1 за версією «DYB Business Club» і KMBS. Власник одного з найдорожчих брендів в Україні у сфері професійних медичних послуг, вивів клініку на рівень франчайзингу та разом з франчайзі реалізував проекти в Одесі та Софії, у Києві та Львові відкрив Центри турботи про зуби – Dental Care Offices, де надається лише одна послуга – професійне чищення зубів.\n' +
       '\n' +
       'Автор книги «Як я став Заблоцьким. Пригоди стоматолога в червоному метелику». Автор та ведучий  медіа-проекту про 100  заможних українців  «Як я став…».'
       ]
     },
-    {
-      name: 'Володимир Воєвідка',
-      state: '',
-      position: 'UI engineer / Grid Dynamics',
-      topic: 'Hidden obstacles of bringing new technology stack to enterprise organization',
-      link: 'https://www.linkedin.com/in/vovavoevidka/',
-      imageSrc: 'images/speakers/vova_1.jpg',
-      bullets: [
-        'Share experience of `injection` new web application into existing enterprise infrastructure.',
-        'Deliver understanding of possible issues',
-        'Timeline / estimation visibility.'
-      ]
-    },
-    {
-      name: 'Георгій Подсвєтов',
-      state: '',
-      position: 'Practice director UI technologies/ Grid Dynamics',
-      topic: 'The story about good and bad decisions on the way to develop new UI platform for enterprise',
-      specialGuest: false,
-      link: 'https://www.linkedin.com/in/georgiy-podsvetov-86898945/',
-      imageSrc: 'images/speakers/gp_1.jpg',
-      bullets: [
-        'Story how our team made impossible within one year',
-        'Tough decision',
-        'Thoughts on how to survive and deliver results in highly politicized environment'
-      ]
-    }
-  ],
-  
-  previousSpeakers: [
-    
     {
       name: 'Любомир Семків',
       state: 'спеціальний гість',
@@ -223,9 +220,9 @@ export const config = {
 config.agenda = [
   {time: '10:30-11:00', description: 'Реєстрація, нетворкінг'},
   {time: '11:00-11:15', description: 'Відкриття, декілька слів про новий дизайн'},
-  {time: '11:15-12:30', topic: speakerToDescription(config.speakers[2]), speaker: speaker(config.speakers[2])},
+  {time: '11:15-12:30', topic: speakerToDescription(config.speakers[1]), speaker: speaker(config.speakers[1])},
   {time: '12:30-12:45', description: 'Кава'},
-  {time: '12:45-14:00', topic: speakerToDescription(config.speakers[1]), speaker: speaker(config.speakers[1])},
+  {time: '12:45-14:00', topic: speakerToDescription(config.speakers[2]), speaker: speaker(config.speakers[2])},
   {time: '14:00-14:15', description: 'Напої та снеки'},
   {time: '14:15-15:30', topic: speakerToDescription(config.speakers[0]), speaker: speaker(config.speakers[0])},
   {time: '15:30', description: 'Afterparty, Networking'}
