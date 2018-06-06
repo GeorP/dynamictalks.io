@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//www.marudot.com//iCal Event Maker
+X-WR-CALNAME:JS Dynamic Talks meetup
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Asia/Beirut
+TZURL:http://tzurl.org/zoneinfo-outlook/Asia/Beirut
+X-LIC-LOCATION:Asia/Beirut
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0300
+TZNAME:EEST
+DTSTART:19700329T000000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0200
+TZNAME:EET
+DTSTART:19701025T000000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20180606T133608Z
+UID:20180606T133608Z-1840300859@marudot.com
+DTSTART;TZID="Asia/Beirut":20180623T103000
+DTEND;TZID="Asia/Beirut":20180623T160000
+SUMMARY:JS Dynamic Talks meetup
+URL:https%3A%2F%2Fdynamictalks.io
+DESCRIPTION:JS Dynamic Talks meetup #4\n\n\n10:30 - Реєстрація\, нетворкінг\n11:00 - Відкриття\, декілька слів про Dynamic Talks\n11:15 - Доповідь: «Як розвивалися CSS макети з часом?» (Володимир Сень)\n12:30 - Кава\n12:45 - Доповідь: «Криптографія в JavaScript» (Дем'ян Костельний)\n14:00 - Напої та снеки\n14:15 - Доповідь: «Как разработать свой хардварный продукт\, который не стыдно показать маме - опыт команды FORCE» (Ліза Воронкова)\n15:30 - Нетворкінг
+LOCATION:м.Львів\, вул.Галицька\, 1\, COMMUNA
+TRANSP:OPAQUE
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:JS Dynamic Talks meetup
+TRIGGER:-PT1H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
