@@ -115,7 +115,7 @@ export const config = {
       imageSrc: 'images/speakers/volodymyr_sen.jpg',
       bullets: [
         'Як ефективно використовувати CSS інструменти для побудови макетів?',
-        'Яку майбутнє у СSS засобів?'
+        'Майбутнє CSS макетів'
       ]
     },
     {
