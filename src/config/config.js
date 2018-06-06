@@ -80,7 +80,7 @@ export const config = {
   ],
 
   externalEndpoints: {
-    registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe98SDjiuK5F-0GQe3yV08TllaFMBd419E7Ogjb5h7mcQsTSQ/viewform',
+    registrationUrl: 'https://goo.gl/forms/eSDUyNji3i6wZ6Lq1',
     materialsUrl: 'https://dynamictalks.io/public-materials',
     vacanciesUrl: 'https://www.griddynamics.com/careers',
     icalUrl: '/JS_Dynamic_Talks_meetup_Dec_2017.ics',
@@ -91,7 +91,7 @@ export const config = {
     linkedIn: 'https://www.linkedin.com/company/250774/',
     location: 'https://www.google.com.ua/maps/place/Communa/@49.8410935,24.029017,17z/data=!3m1!4b1!4m5!3m4!1s0x473add6dca02d3bb:0x714a91968247137d!8m2!3d49.8410901!4d24.0312057?hl=en',
     site: 'https://www.griddynamics.com/',
-    promoVideo: 'https://www.youtube.com/watch?v=fpVmtc2A3H8&feature=youtu.be',
+    promoVideo: 'https://www.youtube.com/watch?v=0dw3CeCJch8&feature=youtu.be',
     instagram: 'https://www.instagram.com/explore/tags/griddynamics_lviv/'
   },
 
@@ -219,7 +219,7 @@ export const config = {
 
 config.agenda = [
   {time: '10:30-11:00', description: 'Реєстрація, нетворкінг'},
-  {time: '11:00-11:15', description: 'Відкриття, декілька слів про новий дизайн'},
+  {time: '11:00-11:15', description: 'Відкриття, декілька слів про Dynamic Talks'},
   {time: '11:15-12:30', topic: speakerToDescription(config.speakers[1]), speaker: speaker(config.speakers[1])},
   {time: '12:30-12:45', description: 'Кава'},
   {time: '12:45-14:00', topic: speakerToDescription(config.speakers[2]), speaker: speaker(config.speakers[2])},
