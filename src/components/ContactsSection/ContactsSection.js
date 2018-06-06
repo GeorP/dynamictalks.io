@@ -40,7 +40,7 @@ export default class ContactsSection extends Component {
       externalEndpoints,
       buttonsText
     } = this.props.config;
-    
+
     const pageType = definePageType();
 
     return (
@@ -53,7 +53,7 @@ export default class ContactsSection extends Component {
 
             <Heading title={titles.contacts_section}/>
             <div className="contacts_info">
-              
+
               <div className="contacts_info__calendar">
                 <img
                   alt="calendar"
@@ -77,9 +77,15 @@ export default class ContactsSection extends Component {
                 <h5>{eventAddress.addressLines[1]}</h5>
                 <p>{eventAddress.addressLines[2]}</p>
               </div>
-              
-              {pageType !== PAGETYPES.AFTER && <Button text={buttonsText.layRoute}/>}
-              
+
+              {
+                pageType !== PAGETYPES.AFTER &&
+                <Button
+                  link={externalEndpoints.location}
+                  text={buttonsText.layRoute}
+                />
+              }
+
             </div>
 
           </div>
@@ -94,9 +100,8 @@ export default class ContactsSection extends Component {
         <div className="btn-block">
           <a
             className="map_btn"
-            href={externalEndpoints.location
-            }
-          >Прокласти маршрут</a>
+            href={externalEndpoints.location}
+          >{buttonsText.layRoute}</a>
         </div>
 
       </section>
