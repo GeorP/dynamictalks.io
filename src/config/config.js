@@ -83,7 +83,7 @@ export const config = {
     registrationUrl: 'https://goo.gl/forms/eSDUyNji3i6wZ6Lq1',
     materialsUrl: 'https://dynamictalks.io/public-materials',
     vacanciesUrl: 'https://www.griddynamics.com/careers',
-    icalUrl: '/JS_Dynamic_Talks_meetup_Dec_2017.ics',
+    icalUrl: 'JS_Dynamic_Talks_meetup_Jun_2018.ics',
     youtube: 'https://goo.gl/CsBDhE',
     slack: 'https://dynamictalks.slack.com/join/shared_invite/enQtMjU0OTkwNjY0MjYzLTQxZmJkNjk2OTZjNTQ1OTc4N2ExYmQwZDZjYTBlYWUyNzA2NmJjMDc0ZGIxZWQ3OTkyNmZjMDQxN2RmNzA2ODc',
     facebook: 'https://www.facebook.com/dynamictalks/',
