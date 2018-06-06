@@ -23,12 +23,12 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-DTSTAMP:20180606T125312Z
-UID:20180606T125312Z-333874865@marudot.com
+DTSTAMP:20180606T133608Z
+UID:20180606T133608Z-1840300859@marudot.com
 DTSTART;TZID="Asia/Beirut":20180623T103000
 DTEND;TZID="Asia/Beirut":20180623T160000
 SUMMARY:JS Dynamic Talks meetup
-URL:http%3A%2F%2Fdynamictalks.io
+URL:https%3A%2F%2Fdynamictalks.io
 DESCRIPTION:JS Dynamic Talks meetup #4\n\n\n10:30 - Реєстрація\, нетворкінг\n11:00 - Відкриття\, декілька слів про Dynamic Talks\n11:15 - Доповідь: «Як розвивалися CSS макети з часом?» (Володимир Сень)\n12:30 - Кава\n12:45 - Доповідь: «Криптографія в JavaScript» (Дем'ян Костельний)\n14:00 - Напої та снеки\n14:15 - Доповідь: «Как разработать свой хардварный продукт\, который не стыдно показать маме - опыт команды FORCE» (Ліза Воронкова)\n15:30 - Нетворкінг
 LOCATION:м.Львів\, вул.Галицька\, 1\, COMMUNA
 TRANSP:OPAQUE
