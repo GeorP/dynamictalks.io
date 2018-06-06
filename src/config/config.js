@@ -107,7 +107,7 @@ export const config = {
       bullets: []
     },
     {
-      name: 'Володимир Сен',
+      name: 'Володимир Сень',
       state: '',
       position: 'UI engineer / Grid Dynamics',
       topic: 'Як розвивалися CSS макети з часом?',
