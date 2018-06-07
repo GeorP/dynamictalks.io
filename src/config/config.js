@@ -127,7 +127,7 @@ export const config = {
       link: 'https://www.facebook.com/profile.php?id=100007051546205',
       imageSrc: 'images/speakers/demian_kostelny.jpg',
       bullets: [
-        'Історія крипрографії',
+        'Історія криптографії',
         'Чому криптографія як ніколи актуальна в наш час',
         'Алгоритми шифрування з прикладами на JavaScript'
       ]
